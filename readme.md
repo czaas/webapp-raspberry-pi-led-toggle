@@ -4,6 +4,8 @@ _This project must be running on the raspberry pi as it uses the npm module <a h
 
 This is a node server that is running on a raspberry pi, that uses a webpage to send commands to turn on or off the led. 
 
+<img src="https://github.com/czaas/webapp-raspberry-pi-led-toggle/blob/master/led-working.gif" />
+
 ## The gist of it
 
 **Server and hardware**
