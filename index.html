@@ -1,11 +1,13 @@
 <html>
 	<head>
 		<title>Rasberry Pi LED toggle app</title>
-		<meta name="viewport" content="widtd=device-width, intial-scale=1" />
+		<meta name="viewport" content="width=device-width, intial-scale=1" />
 	</head>
 	<body>
 		<h1>LED Toggle</h1>
 		
+		<p>LED status: <span id="led-status">off</span></p>
+
 		<div id="toggle-buttons">
 			<a id="toggle-on">Turn On</a>
 			<a id="toggle-off">Turn Off</a>
@@ -16,22 +18,30 @@
 		(function($) {
 			var toggleOn = document.getElementById('toggle-on');
 			var toggleOff = document.getElementById('toggle-off');
-			
+			var ledStatus = document.getElementById('led-status');
+
 			toggleOn.addEventListener('click', function(){
 				$.post('http://czaaspi.localtunnel.me/led', {
 					command: 'on'
-				});
+				})
+					.done(function(res){
+						setStatus(res);
+					});
 			});
 
 			toggleOff.addEventListener('click', function(){
-				console.log('Toggle Off');
 				$.post('http://czaaspi.localtunnel.me/led', {
 					command: 'off'
 				})
 					.done(function(res){
-						console.log(res);
+						setStatus(res);
 					});
 			});
+
+
+			function setStatus(status) {
+				ledStatus.innerHTML = status;
+			}
 		}(jQuery));
 		</script>
 	</body>

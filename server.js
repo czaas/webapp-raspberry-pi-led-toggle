@@ -24,7 +24,7 @@ app.post('/led', function(req, res){
 
 	(toggleCommand === 'on') ? led.writeSync(1) : led.writeSync(0);
 
-	res.send('LED is now ' + toggleCommand); 
+	res.send(toggleCommand); 
 });
 
 app.listen(appPort, function(){
