@@ -10,7 +10,7 @@ This is a node server that is running on a raspberry pi, that uses a webpage to 
 
 I have a raspberry pi wired up to a breadboard that has a LED on it. It's initial state once the server is running is off. 
 
-**The Website*
+**The Website**
 
 Then you can go to a website, I'm using <a href="https://localtunnel.me" target="blank">localtunnel</a> to expose my localhost address to the web with a unique subdomain.  
 
