@@ -12,11 +12,13 @@ var Gpio = require('onoff').Gpio;
 var led = new Gpio(14, 'out');
 var appPort = 9999;
 
+app.use(express.static('app'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
 app.get('/', function(req, res){
-	res.sendFile(path.join(__dirname + '/index.html'));
+	res.sendFile(path.join(__dirname + '/app/index.html'));
 });
 
 app.post('/led', function(req, res){
