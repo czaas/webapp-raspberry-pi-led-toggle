@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<title>Rasberry Pi LED toggle app</title>
+		<meta name="viewport" content="widtd=device-width, intial-scale=1" />
+	</head>
+	<body>
+		<h1>LED Toggle</h1>
+		
+		<div id="toggle-buttons">
+			<a id="toggle-on">Turn On</a>
+			<a id="toggle-off">Turn Off</a>
+		</div>
+		
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+		<script>
+		(function($) {
+			var toggleOn = document.getElementById('toggle-on');
+			var toggleOff = document.getElementById('toggle-off');
+			
+			toggleOn.addEventListener('click', function(){
+				$.post('http://czaaspi.localtunnel.me/led', {
+					command: 'on'
+				});
+			});
+
+			toggleOff.addEventListener('click', function(){
+				console.log('Toggle Off');
+				$.post('http://czaaspi.localtunnel.me/led', {
+					command: 'off'
+				})
+					.done(function(res){
+						console.log(res);
+					});
+			});
+		}(jQuery));
+		</script>
+	</body>
+</html>
