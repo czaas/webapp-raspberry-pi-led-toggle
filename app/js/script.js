@@ -8,6 +8,9 @@
 			command: 'on'
 		})
 			.done(function(res){
+				$(toggleOn).addClass('button--disabled');
+				$(toggleOff).removeClass('button--disabled');
+
 				setStatus(res);
 			});
 	});
@@ -17,6 +20,9 @@
 			command: 'off'
 		})
 			.done(function(res){
+				$(toggleOff).addClass('button--disabled');
+				$(toggleOn).removeClass('button--disabled');
+
 				setStatus(res);
 			});
 	});

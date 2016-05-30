@@ -7,19 +7,27 @@
 	color: #fff;
 	margin: 0 10px 10px 0;
 	font-family: Arial, sans-serif;
+	box-shadow: 1px 3px 3px #666;
+
 }
 .button:hover {
 	cursor: pointer;
+	box-shadow: 2px 5px 7px #666;
 }
 
 .button--on {
 	background: #427999;
 }
 .button--off {
-	background: #ccc;
+	background: #ff0000;
 }
 
 .button--disabled {
-	cursor: disabled;
 	opacity: .5;
+
+}
+.button--disabled:hover {
+	cursor: not-allowed;
+	box-shadow: 1px 3px 7px #666;
+
 }
