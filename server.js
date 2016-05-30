@@ -1,21 +1,16 @@
 "use strict"
-
+// server libaries
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
 
+// gpio libary for talking to raspberry pi which this server is hosted on
 var Gpio = require('onoff').Gpio;
+
+// app settings
 var led = new Gpio(14, 'out');
-
 var appPort = 9999;
-
-function toggleOn(){
-	led.writeSync(1);
-}
-function toggleOff(){
-	led.writeSync(0);
-}
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,10 +21,10 @@ app.get('/', function(req, res){
 
 app.post('/led', function(req, res){
 	var toggleCommand = req.body.command;
-	console.log(req.body);
-	(toggleCommand === 'on') ? toggleOn() : toggleOff();
 
-	res.send('toggled'); 
+	(toggleCommand === 'on') ? led.writeSync(1) : led.writeSync(0);
+
+	res.send('LED is now ' + toggleCommand); 
 });
 
 app.listen(appPort, function(){
