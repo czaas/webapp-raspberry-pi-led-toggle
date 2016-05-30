@@ -4,7 +4,7 @@ _This project must be running on the raspberry pi as it uses the npm module <a h
 
 This is a node server that is running on a raspberry pi, that uses a webpage to send commands to turn on or off the led. 
 
-## The jist of it
+## The gist of it
 
 **Server and hardware**
 
